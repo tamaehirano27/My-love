@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Things I love about you – 2 Years 9 Months</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@500;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cormorant Garamond', serif;
+      background: linear-gradient(135deg, #f8f1e9 0%, #e8d9c8 50%, #f3e6d8 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      color: #3a2f2a;
+      overflow-x: hidden;
+    }
+
+    .book-container {
+      width: 100%;
+      max-width: 420px;
+      perspective: 2000px;
+    }
+
+    .book {
+      position: relative;
+      width: 100%;
+      height: 620px;
+      background: #fffaf5;
+      border-radius: 4px 16px 16px 4px;
+      box-shadow: 
+        0 20px 60px rgba(80, 50, 30, 0.18),
+        8px 0 20px rgba(0,0,0,0.06),
+        inset 0 0 40px rgba(255, 248, 240, 0.8);
+      overflow: hidden;
+      border: 1px solid #e8d5c0;
+    }
+
+    .book::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 18px;
+      background: linear-gradient(to right, #d4b896, #c9a87c);
+      box-shadow: inset -3px 0 8px rgba(0,0,0,0.1);
+      z-index: 10;
+    }
+
+    .page {
+      position: absolute;
+      inset: 0;
+      padding: 50px 36px 40px 48px;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: #fffaf5;
+      transition: opacity 0.5s ease;
+    }
+
+    .page.active {
+      display: flex;
+      animation: fadeIn 0.6s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .page-number {
+      position: absolute;
+      bottom: 22px;
+      font-size: 0.85rem;
+      color: #a89078;
+      letter-spacing: 1px;
+    }
+
+    .message {
+      font-size: 1.45rem;
+      line-height: 1.7;
+      font-weight: 400;
+      max-width: 300px;
+      color: #3a2f2a;
+    }
+
+    .cover h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #5c3d2e;
+      letter-spacing: 1px;
+    }
+
+    .cover .subtitle {
+      font-size: 1.15rem;
+      color: #8b6f5c;
+      margin-bottom: 40px;
+      font-style: italic;
+    }
+
+    .cover .ornament {
+      font-size: 1.8rem;
+      color: #c9a87c;
+      margin: 20px 0;
+    }
+
+    .final-page .photo {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 6px solid #fff;
+      box-shadow: 0 12px 30px rgba(80, 50, 30, 0.2);
+      margin-bottom: 28px;
+    }
+
+    .final-message {
+      font-size: 1.3rem;
+      line-height: 1.65;
+      max-width: 290px;
+      color: #4a3728;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 420px;
+      margin-top: 28px;
+      padding: 0 10px;
+    }
+
+    .nav button {
+      background: #5c3d2e;
+      color: #f8f1e9;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(80, 50, 30, 0.2);
+    }
+
+    .nav button:hover {
+      background: #4a2f22;
+      transform: translateY(-2px);
+    }
+
+    .nav button:disabled {
+      background: #c9b8a8;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .progress {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 0.9rem;
+      color: #8b6f5c;
+      letter-spacing: 1px;
+    }
+
+    .corner {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      opacity: 0.15;
+    }
+    .corner.tl { top: 16px; left: 28px; border-top: 2px solid #c9a87c; border-left: 2px solid #c9a87c; }
+    .corner.tr { top: 16px; right: 16px; border-top: 2px solid #c9a87c; border-right: 2px solid #c9a87c; }
+    .corner.bl { bottom: 16px; left: 28px; border-bottom: 2px solid #c9a87c; border-left: 2px solid #c9a87c; }
+    .corner.br { bottom: 16px; right: 16px; border-bottom: 2px solid #c9a87c; border-right: 2px solid #c9a87c; }
+  </style>
+</head>
+<body>
+
+  <div class="book-container">
+    <div class="book" id="book">
+      <!-- Pages inserted by JS -->
+    </div>
+
+    <div class="nav">
+      <button id="prevBtn" disabled>← Previous</button>
+      <button id="nextBtn">Next →</button>
+    </div>
+    <div class="progress" id="progress">1 / 21</div>
+  </div>
+
+  <script>
+    const messages = [
+      "You're the kindest person I've ever met",
+      "You teach me what love is every day",
+      "You teach me how important forgiving is",
+      "You teach me how loving and caring I can be",
+      "I'm the funniest when I'm with you",
+      "Every night is better and warmer with you",
+      "You care about me even when you're sleeping",
+      "Your voice calms me",
+      "Your style",
+      "Your face",
+      "Your smile",
+      "You're the person who tries the most for the partner",
+      "You make me feel beautiful",
+      "You make me laugh",
+      "Your smell",
+      "Being with you feels safe",
+      "You giggling at YouTube",
+      "Waking up with you",
+      "So many memories with you"
+    ];
+
+    const finalMessage = "You make me look forward to the future<br>because you'll be in mine.";
+    const photoUrl = "https://i.ibb.co/Zp6h2R9y/041c6158-f12a-4ccf-b38a-66a2c6e3e66b.jpg";
+
+    const book = document.getElementById('book');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progress = document.getElementById('progress');
+
+    let currentPage = 0;
+    const totalPages = messages.length + 2; // cover + messages + final
+
+    function createCover() {
+      const page = document.createElement('div');
+      page.className = 'page cover active';
+      page.innerHTML = `
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+        <div class="ornament">✦</div>
+        <h1>Our Story</h1>
+        <p class="subtitle">Two years and nine months of us</p>
+        <div class="ornament">✦</div>
+        <p style="margin-top:30px; font-size:1rem; color:#8b6f5c;">Turn the page</p>
+        <div class="page-number">Cover</div>
+      `;
+      book.appendChild(page);
+    }
+
+    function createMessagePages() {
+      messages.forEach((msg, i) => {
+        const page = document.createElement('div');
+        page.className = 'page';
+        page.innerHTML = `
+          <div class="corner tl"></div>
+          <div class="corner tr"></div>
+          <div class="corner bl"></div>
+          <div class="corner br"></div>
+          <p class="message">${msg}</p>
+          <div class="page-number">${i + 1}</div>
+        `;
+        book.appendChild(page);
+      });
+    }
+
+    function createFinalPage() {
+      const page = document.createElement('div');
+      page.className = 'page final-page';
+      page.innerHTML = `
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+        <img src="${photoUrl}" alt="Us" class="photo">
+        <p class="final-message">${finalMessage}</p>
+        <div class="page-number">The End</div>
+      `;
+      book.appendChild(page);
+    }
+
+    function showPage(index) {
+      const pages = document.querySelectorAll('.page');
+      pages.forEach((p, i) => {
+        p.classList.toggle('active', i === index);
+      });
+
+      prevBtn.disabled = index === 0;
+      nextBtn.disabled = index === totalPages - 1;
+      progress.textContent = `${index + 1} / ${totalPages}`;
+    }
+
+    createCover();
+    createMessagePages();
+    createFinalPage();
+    showPage(0);
+
+    nextBtn.addEventListener('click', () => {
+      if (currentPage < totalPages - 1) {
+        currentPage++;
+        showPage(currentPage);
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentPage > 0) {
+        currentPage--;
+        showPage(currentPage);
+      }
+    });
+
+    // Swipe support
+    let touchStartX = 0;
+    book.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+    book.addEventListener('touchend', e => {
+      const touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0 && currentPage < totalPages - 1) {
+          currentPage++;
+          showPage(currentPage);
+        } else if (diff < 0 && currentPage > 0) {
+          currentPage--;
+          showPage(currentPage);
+        }
+      }
+    });
+  </script>
+</body>
+</html>
